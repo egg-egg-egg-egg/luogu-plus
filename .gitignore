@@ -1,0 +1,38 @@
+# === Dependencies ===
+node_modules/
+
+# === Build Output ===
+dist/
+.vite/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+
+# === Logs ===
+*.log
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === Environment ===
+.env
+.env.local
+.env.*.local
+
+# === Project Memory (WorkBuddy) ===
+.workbuddy/
+
+# === Misc ===
+*.zip
+*.tmp

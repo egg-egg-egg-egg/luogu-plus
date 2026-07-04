@@ -1,0 +1,40 @@
+{
+  "url": "https://www.luogu.com.cn/user/1403058/practice",
+  "final_url": "https://www.luogu.com.cn/user/1403058/practice",
+  "status_code": 200,
+  "encoding": "UTF-8",
+  "content_length_bytes": 24228,
+  "text_length_chars": 24192,
+  "headers": {
+    "Date": "Fri, 03 Jul 2026 16:24:13 GMT",
+    "Content-Type": "text/html; charset=UTF-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "vary": "Accept-Encoding,x-lentille-request",
+    "cache-control": "max-age=0, must-revalidate, private",
+    "expires": "Fri, 03 Jul 2026 16:24:13 GMT",
+    "set-cookie": "__client_id=yiz7mgmknb2j6hcri5vpari3t2iravscvixnq7nyla5kw3c4; expires=Sun, 02 Aug 2026 16:24:13 GMT; Max-Age=2592000; path=/; domain=.luogu.com.cn; secure; httponly; samesite=none, C3VK=8c7222; Max-Age=300; Path=/",
+    "luogu-serve-by": "CNHAZb.web-007",
+    "content-encoding": "gzip",
+    "x-via": "1.1 PS-000-01HLH49:6 (Cdn Cache Server V2.0)",
+    "x-ws-request-id": "6a47e22d_PS-000-01HLH49_7768-24840"
+  },
+  "cookies_received": [
+    {
+      "name": "__client_id",
+      "domain": ".luogu.com.cn",
+      "path": "/"
+    },
+    {
+      "name": "C3VK",
+      "domain": "www.luogu.com.cn",
+      "path": "/"
+    }
+  ],
+  "probe": {
+    "has_initial_state": false,
+    "has_decodeURIComponent_wrapper": false,
+    "has_login_wall_keyword": false,
+    "has_block_keyword": false
+  }
+}

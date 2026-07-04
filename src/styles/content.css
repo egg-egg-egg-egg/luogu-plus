@@ -1,0 +1,117 @@
+/* Content Script 注入样式（统一前缀 luogu-plus- 防冲突） */
+/* 视觉规格见规格文档 §3.4.2 */
+/* 所有样式只作用于扩展注入的元素，不污染洛谷页面原生样式 */
+
+/* ============ 列表页徽章 ============ */
+.luogu-plus-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: rgba(82, 196, 26, 0.15);
+  color: #52c41a;
+  border: 1px solid rgba(82, 196, 26, 0.3);
+  cursor: help;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  user-select: none;
+  vertical-align: middle;
+  transition: opacity 0.2s ease;
+}
+
+/* 未 AC（灰色「未做过」/ 0/N） */
+.luogu-plus-badge[data-ac='false'] {
+  background: rgba(0, 0, 0, 0.05);
+  color: #999;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 暗色模式（洛谷暗色背景 #1f1f1f） */
+.luogu-plus-badge[data-theme='dark'] {
+  background: rgba(82, 196, 26, 0.25);
+  color: #73d13d;
+  border-color: rgba(82, 196, 26, 0.4);
+}
+.luogu-plus-badge[data-theme='dark'][data-ac='false'] {
+  background: rgba(255, 255, 255, 0.08);
+  color: #aaa;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* 缓存过期褪色（lastSyncedAt 超 7 天） */
+.luogu-plus-badge[data-stale='true'] {
+  opacity: 0.5;
+}
+
+/* 过期时的时钟图标（用 ::before 伪元素，避免改 DOM） */
+.luogu-plus-badge[data-stale='true']::before {
+  content: '🕘';
+  font-size: 11px;
+  margin-right: 1px;
+}
+
+/* ============ 详情页状态条 ============ */
+.luogu-plus-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px;
+  margin: 8px 0;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  background: rgba(82, 196, 26, 0.1);
+  color: #52c41a;
+  border-left: 4px solid #52c41a;
+  transition: opacity 0.2s ease;
+}
+
+.luogu-plus-status-bar[data-theme='dark'] {
+  background: rgba(82, 196, 26, 0.2);
+  color: #73d13d;
+  border-left-color: #73d13d;
+}
+
+/* 过期褪色 */
+.luogu-plus-status-bar[data-stale='true'] {
+  opacity: 0.6;
+}
+
+.luogu-plus-status-bar-text {
+  flex: 1;
+  word-break: break-all;
+}
+
+/* 关闭按钮 */
+.luogu-plus-status-bar-close {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+.luogu-plus-status-bar-close:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.08);
+}
+.luogu-plus-status-bar-close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  opacity: 1;
+}
+.luogu-plus-status-bar[data-theme='dark'] .luogu-plus-status-bar-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+}

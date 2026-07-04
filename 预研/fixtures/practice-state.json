@@ -1,0 +1,1365 @@
+{
+  "instance": "main",
+  "template": "user.show",
+  "status": 200,
+  "locale": "zh-CN",
+  "data": {
+    "passed": [
+      {
+        "type": "P",
+        "name": "A+B Problem",
+        "difficulty": 1,
+        "pid": "P1001"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 1998 普及组] 三连击",
+        "difficulty": 2,
+        "pid": "P1008"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2002 普及组] 级数求和",
+        "difficulty": 1,
+        "pid": "P1035"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2002 普及组] 选数",
+        "difficulty": 2,
+        "pid": "P1036"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2005 普及组] 采药",
+        "difficulty": 2,
+        "pid": "P1048"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2001 普及组] 装箱问题",
+        "difficulty": 2,
+        "pid": "P1049"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2006 普及组] 明明的随机数",
+        "difficulty": 2,
+        "pid": "P1059"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2006 普及组] 开心的金明",
+        "difficulty": 2,
+        "pid": "P1060"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2012 普及组] 质因数分解",
+        "difficulty": 2,
+        "pid": "P1075"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2004 提高组] 合并果子",
+        "difficulty": 3,
+        "pid": "P1090"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2007 普及组] 奖学金",
+        "difficulty": 2,
+        "pid": "P1093"
+      },
+      {
+        "type": "P",
+        "name": "生日",
+        "difficulty": 2,
+        "pid": "P1104"
+      },
+      {
+        "type": "P",
+        "name": "车厢重组",
+        "difficulty": 2,
+        "pid": "P1116"
+      },
+      {
+        "type": "P",
+        "name": "第 k 小整数",
+        "difficulty": 2,
+        "pid": "P1138"
+      },
+      {
+        "type": "P",
+        "name": "连续正整数和",
+        "difficulty": 2,
+        "pid": "P1147"
+      },
+      {
+        "type": "P",
+        "name": "组合的输出",
+        "difficulty": 2,
+        "pid": "P1157"
+      },
+      {
+        "type": "P",
+        "name": "小 A 点菜",
+        "difficulty": 2,
+        "pid": "P1164"
+      },
+      {
+        "type": "P",
+        "name": "中位数",
+        "difficulty": 3,
+        "pid": "P1168"
+      },
+      {
+        "type": "P",
+        "name": "【模板】排序",
+        "difficulty": 2,
+        "pid": "P1177"
+      },
+      {
+        "type": "P",
+        "name": "[USACO1.2] Milking Cows",
+        "difficulty": 2,
+        "pid": "P1204"
+      },
+      {
+        "type": "P",
+        "name": "[USACO1.5] Prime Palindromes",
+        "difficulty": 2,
+        "pid": "P1217"
+      },
+      {
+        "type": "P",
+        "name": "【模板】快速幂",
+        "difficulty": 2,
+        "pid": "P1226"
+      },
+      {
+        "type": "P",
+        "name": "走迷宫",
+        "difficulty": 3,
+        "pid": "P1238"
+      },
+      {
+        "type": "P",
+        "name": "括号序列",
+        "difficulty": 2,
+        "pid": "P1241"
+      },
+      {
+        "type": "P",
+        "name": "A*B Problem",
+        "difficulty": 2,
+        "pid": "P1303"
+      },
+      {
+        "type": "P",
+        "name": "哥德巴赫猜想",
+        "difficulty": 1,
+        "pid": "P1304"
+      },
+      {
+        "type": "P",
+        "name": "新二叉树",
+        "difficulty": 2,
+        "pid": "P1305"
+      },
+      {
+        "type": "P",
+        "name": "单词背诵",
+        "difficulty": 4,
+        "pid": "P1381"
+      },
+      {
+        "type": "P",
+        "name": "小鱼的游泳时间",
+        "difficulty": 1,
+        "pid": "P1425"
+      },
+      {
+        "type": "P",
+        "name": "求m区间内的最小值",
+        "difficulty": 3,
+        "pid": "P1440"
+      },
+      {
+        "type": "P",
+        "name": "求细胞数量",
+        "difficulty": 2,
+        "pid": "P1451"
+      },
+      {
+        "type": "P",
+        "name": "[PacNW 1999] Function",
+        "difficulty": 2,
+        "pid": "P1464"
+      },
+      {
+        "type": "P",
+        "name": "村村通",
+        "difficulty": 2,
+        "pid": "P1536"
+      },
+      {
+        "type": "P",
+        "name": "亲戚",
+        "difficulty": 3,
+        "pid": "P1551"
+      },
+      {
+        "type": "P",
+        "name": "语句解析",
+        "difficulty": 1,
+        "pid": "P1597"
+      },
+      {
+        "type": "P",
+        "name": "高精度加法",
+        "difficulty": 2,
+        "pid": "P1601"
+      },
+      {
+        "type": "P",
+        "name": "迷宫",
+        "difficulty": 2,
+        "pid": "P1605"
+      },
+      {
+        "type": "P",
+        "name": "三连击（升级版）",
+        "difficulty": 2,
+        "pid": "P1618"
+      },
+      {
+        "type": "P",
+        "name": "逛画展",
+        "difficulty": 3,
+        "pid": "P1638"
+      },
+      {
+        "type": "P",
+        "name": "跳马问题",
+        "difficulty": 2,
+        "pid": "P1644"
+      },
+      {
+        "type": "P",
+        "name": "全排列问题",
+        "difficulty": 2,
+        "pid": "P1706"
+      },
+      {
+        "type": "P",
+        "name": "最大加权矩形",
+        "difficulty": 3,
+        "pid": "P1719"
+      },
+      {
+        "type": "P",
+        "name": "最大约数和",
+        "difficulty": 2,
+        "pid": "P1734"
+      },
+      {
+        "type": "P",
+        "name": "表达式括号匹配",
+        "difficulty": 1,
+        "pid": "P1739"
+      },
+      {
+        "type": "P",
+        "name": "石子合并（弱化版）",
+        "difficulty": 3,
+        "pid": "P1775"
+      },
+      {
+        "type": "P",
+        "name": "忠诚",
+        "difficulty": 3,
+        "pid": "P1816"
+      },
+      {
+        "type": "P",
+        "name": "[NOI1995] 石子合并",
+        "difficulty": 4,
+        "pid": "P1880"
+      },
+      {
+        "type": "P",
+        "name": "【模板】单调队列 / 滑动窗口",
+        "difficulty": 3,
+        "pid": "P1886"
+      },
+      {
+        "type": "P",
+        "name": "逆序对",
+        "difficulty": 3,
+        "pid": "P1908"
+      },
+      {
+        "type": "P",
+        "name": "小书童——刷题大军",
+        "difficulty": 2,
+        "pid": "P1926"
+      },
+      {
+        "type": "P",
+        "name": "约瑟夫问题",
+        "difficulty": 2,
+        "pid": "P1996"
+      },
+      {
+        "type": "P",
+        "name": "扫描",
+        "difficulty": 3,
+        "pid": "P2032"
+      },
+      {
+        "type": "P",
+        "name": "[COCI 2008/2009 #2] PERKET",
+        "difficulty": 2,
+        "pid": "P2036"
+      },
+      {
+        "type": "P",
+        "name": "质因子分解",
+        "difficulty": 2,
+        "pid": "P2043"
+      },
+      {
+        "type": "P",
+        "name": "朋友",
+        "difficulty": 3,
+        "pid": "P2078"
+      },
+      {
+        "type": "P",
+        "name": "烤鸡",
+        "difficulty": 2,
+        "pid": "P2089"
+      },
+      {
+        "type": "P",
+        "name": "质量检测",
+        "difficulty": 3,
+        "pid": "P2251"
+      },
+      {
+        "type": "P",
+        "name": "语文成绩",
+        "difficulty": 2,
+        "pid": "P2367"
+      },
+      {
+        "type": "P",
+        "name": "放苹果",
+        "difficulty": 2,
+        "pid": "P2386"
+      },
+      {
+        "type": "P",
+        "name": "[USACO09OCT] Bessie's Weight Problem G",
+        "difficulty": 2,
+        "pid": "P2639"
+      },
+      {
+        "type": "P",
+        "name": "[NOIP 2015 普及组] 扫雷游戏",
+        "difficulty": 1,
+        "pid": "P2670"
+      },
+      {
+        "type": "P",
+        "name": "[USACO07DEC] Bookshelf B",
+        "difficulty": 2,
+        "pid": "P2676"
+      },
+      {
+        "type": "P",
+        "name": "【模板】并查集",
+        "difficulty": 3,
+        "pid": "P3367"
+      },
+      {
+        "type": "P",
+        "name": "【模板】线段树 1",
+        "difficulty": 4,
+        "pid": "P3372"
+      },
+      {
+        "type": "P",
+        "name": "【模板】堆",
+        "difficulty": 3,
+        "pid": "P3378"
+      },
+      {
+        "type": "P",
+        "name": "【模板】线性筛素数",
+        "difficulty": 2,
+        "pid": "P3383"
+      },
+      {
+        "type": "P",
+        "name": "[USACO07DEC] Charm Bracelet S",
+        "difficulty": 2,
+        "pid": "P2871"
+      },
+      {
+        "type": "P",
+        "name": "[USACO07JAN] Balanced Lineup G",
+        "difficulty": 3,
+        "pid": "P2880"
+      },
+      {
+        "type": "P",
+        "name": "[USACO08DEC] Hay For Sale S",
+        "difficulty": 2,
+        "pid": "P2925"
+      },
+      {
+        "type": "P",
+        "name": "地毯",
+        "difficulty": 2,
+        "pid": "P3397"
+      },
+      {
+        "type": "P",
+        "name": "超级玛丽游戏",
+        "difficulty": 1,
+        "pid": "P1000"
+      },
+      {
+        "type": "P",
+        "name": "攀爬者",
+        "difficulty": 2,
+        "pid": "P5143"
+      },
+      {
+        "type": "P",
+        "name": "[TJOI2009] 开关",
+        "difficulty": 4,
+        "pid": "P3870"
+      },
+      {
+        "type": "P",
+        "name": "【模板】ST 表 & RMQ 问题",
+        "difficulty": 3,
+        "pid": "P3865"
+      },
+      {
+        "type": "P",
+        "name": "素数个数",
+        "difficulty": 2,
+        "pid": "P3912"
+      },
+      {
+        "type": "P",
+        "name": "[JLOI2011] 不重复数字",
+        "difficulty": 2,
+        "pid": "P4305"
+      },
+      {
+        "type": "P",
+        "name": "[BalticOI 2007] Sound 静音问题",
+        "difficulty": 3,
+        "pid": "P4392"
+      },
+      {
+        "type": "P",
+        "name": "【模板】单调栈",
+        "difficulty": 3,
+        "pid": "P5788"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2019] 数字游戏",
+        "difficulty": 1,
+        "pid": "P5660"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2019 江西] 面积",
+        "difficulty": 1,
+        "pid": "P5681"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例1】距离函数",
+        "difficulty": 1,
+        "pid": "P5735"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例2】质数筛",
+        "difficulty": 2,
+        "pid": "P5736"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例3】闰年展示",
+        "difficulty": 1,
+        "pid": "P5737"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例4】歌唱比赛",
+        "difficulty": 2,
+        "pid": "P5738"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例7】计算阶乘",
+        "difficulty": 1,
+        "pid": "P5739"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例9】最厉害的学生",
+        "difficulty": 2,
+        "pid": "P5740"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例10】旗鼓相当的对手 - 加强版",
+        "difficulty": 2,
+        "pid": "P5741"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.例11】评等级",
+        "difficulty": 2,
+        "pid": "P5742"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.习8】猴子吃桃",
+        "difficulty": 1,
+        "pid": "P5743"
+      },
+      {
+        "type": "P",
+        "name": "【深基7.习9】培训",
+        "difficulty": 1,
+        "pid": "P5744"
+      },
+      {
+        "type": "P",
+        "name": "【深基9.例1】选举学生会",
+        "difficulty": 2,
+        "pid": "P1271"
+      },
+      {
+        "type": "P",
+        "name": "【深基9.例4】求第 k 小的数",
+        "difficulty": 2,
+        "pid": "P1923"
+      },
+      {
+        "type": "P",
+        "name": "【深基16.例3】二叉树深度",
+        "difficulty": 2,
+        "pid": "P4913"
+      },
+      {
+        "type": "P",
+        "name": "[USACO05JAN] Moo Volume S",
+        "difficulty": 3,
+        "pid": "P6067"
+      },
+      {
+        "type": "P",
+        "name": "[USACO15DEC] Breed Counting S",
+        "difficulty": 2,
+        "pid": "P6180"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2020] 优秀的拆分",
+        "difficulty": 2,
+        "pid": "P7071"
+      },
+      {
+        "type": "B",
+        "name": "A + B 问题",
+        "difficulty": 1,
+        "pid": "B2007"
+      },
+      {
+        "type": "B",
+        "name": "计算 (a+b)×c 的值",
+        "difficulty": 1,
+        "pid": "B2008"
+      },
+      {
+        "type": "B",
+        "name": "计算 (a+b)/c 的值",
+        "difficulty": 1,
+        "pid": "B2009"
+      },
+      {
+        "type": "B",
+        "name": "带余除法",
+        "difficulty": 1,
+        "pid": "B2010"
+      },
+      {
+        "type": "B",
+        "name": "计算分数的浮点数值",
+        "difficulty": 1,
+        "pid": "B2011"
+      },
+      {
+        "type": "B",
+        "name": "甲流疫情死亡率",
+        "difficulty": 1,
+        "pid": "B2012"
+      },
+      {
+        "type": "B",
+        "name": "温度表达转化",
+        "difficulty": 1,
+        "pid": "B2013"
+      },
+      {
+        "type": "B",
+        "name": "与圆相关的计算",
+        "difficulty": 1,
+        "pid": "B2014"
+      },
+      {
+        "type": "B",
+        "name": "计算并联电阻的阻值",
+        "difficulty": 1,
+        "pid": "B2015"
+      },
+      {
+        "type": "B",
+        "name": "求小数的某一位",
+        "difficulty": 1,
+        "pid": "B2073"
+      },
+      {
+        "type": "B",
+        "name": "数组逆序重存放",
+        "difficulty": 1,
+        "pid": "B2089"
+      },
+      {
+        "type": "B",
+        "name": "素数对",
+        "difficulty": 1,
+        "pid": "B2132"
+      },
+      {
+        "type": "B",
+        "name": "区间内的真素数",
+        "difficulty": 2,
+        "pid": "B2139"
+      },
+      {
+        "type": "B",
+        "name": "进制转换",
+        "difficulty": 2,
+        "pid": "B2143"
+      },
+      {
+        "type": "B",
+        "name": "【模板】队列",
+        "difficulty": 2,
+        "pid": "B3616"
+      },
+      {
+        "type": "P",
+        "name": "【深进1.例1】求区间和",
+        "difficulty": 2,
+        "pid": "P8218"
+      },
+      {
+        "type": "B",
+        "name": "枚举元组",
+        "difficulty": 2,
+        "pid": "B3621"
+      },
+      {
+        "type": "B",
+        "name": "枚举子集（递归实现指数型枚举）",
+        "difficulty": 2,
+        "pid": "B3622"
+      },
+      {
+        "type": "B",
+        "name": "枚举排列（递归实现排列型枚举）",
+        "difficulty": 2,
+        "pid": "B3623"
+      },
+      {
+        "type": "B",
+        "name": "迷宫寻路",
+        "difficulty": 2,
+        "pid": "B3625"
+      },
+      {
+        "type": "B",
+        "name": "跳跃机器人",
+        "difficulty": 2,
+        "pid": "B3626"
+      },
+      {
+        "type": "B",
+        "name": "机器猫斗恶龙",
+        "difficulty": 2,
+        "pid": "B3628"
+      },
+      {
+        "type": "B",
+        "name": "文字工作",
+        "difficulty": 2,
+        "pid": "B3636"
+      },
+      {
+        "type": "B",
+        "name": "最长上升子序列",
+        "difficulty": 2,
+        "pid": "B3637"
+      },
+      {
+        "type": "B",
+        "name": "二叉树的遍历",
+        "difficulty": 2,
+        "pid": "B3642"
+      },
+      {
+        "type": "B",
+        "name": "图的存储",
+        "difficulty": 2,
+        "pid": "B3643"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202209] 山峰",
+        "difficulty": 2,
+        "pid": "B3662"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202209] Luogu Academic",
+        "difficulty": 1,
+        "pid": "B3663"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202209] 零食售卖点",
+        "difficulty": 2,
+        "pid": "B3664"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202208] 你几岁了",
+        "difficulty": 1,
+        "pid": "B3648"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202208] 大小比较",
+        "difficulty": 1,
+        "pid": "B3649"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202208] 求和",
+        "difficulty": 1,
+        "pid": "B3650"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2022] 乘方",
+        "difficulty": 1,
+        "pid": "P8813"
+      },
+      {
+        "type": "P",
+        "name": "[蓝桥杯 2022 省 A] 求和",
+        "difficulty": 2,
+        "pid": "P8772"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202210] 应急食品",
+        "difficulty": 1,
+        "pid": "B3668"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202210] 购物节",
+        "difficulty": 1,
+        "pid": "B3669"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202210] 配餐",
+        "difficulty": 1,
+        "pid": "B3671"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202210] 玉桂狗",
+        "difficulty": 1,
+        "pid": "B3670"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202210] 垃圾分类",
+        "difficulty": 1,
+        "pid": "B3673"
+      },
+      {
+        "type": "B",
+        "name": "求区间所有后缀最大值的位置",
+        "difficulty": 3,
+        "pid": "B3667"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202210] 标题修改",
+        "difficulty": 1,
+        "pid": "B3674"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202211] Winner",
+        "difficulty": 1,
+        "pid": "B3676"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202212] 不可以，总司令",
+        "difficulty": 1,
+        "pid": "B3684"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202212] 计算",
+        "difficulty": 1,
+        "pid": "B3685"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202212] 数字口袋",
+        "difficulty": 1,
+        "pid": "B3687"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202212]  洛谷三角洲",
+        "difficulty": 1,
+        "pid": "B3686"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2022 山东] 植树节",
+        "difficulty": 2,
+        "pid": "P11853"
+      },
+      {
+        "type": "P",
+        "name": "「EZEC-14」浴眼盯真",
+        "difficulty": 1,
+        "pid": "P9459"
+      },
+      {
+        "type": "P",
+        "name": "[YsOI2023] 区间翻转区间异或和",
+        "difficulty": 3,
+        "pid": "P9533"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202303 一级] 每月天数",
+        "difficulty": 1,
+        "pid": "B3835"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202309 二级] 数字黑洞",
+        "difficulty": 2,
+        "pid": "B3866"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202309 三级] 小杨的储蓄",
+        "difficulty": 1,
+        "pid": "B3867"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202309 五级] 因数分解",
+        "difficulty": 2,
+        "pid": "B3871"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202312 一级] 小杨的考试",
+        "difficulty": 1,
+        "pid": "B3921"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202312 一级] 小杨报数",
+        "difficulty": 1,
+        "pid": "B3922"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202312 二级] 小杨做题",
+        "difficulty": 1,
+        "pid": "B3923"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202312 二级] 小杨的 H 字矩阵",
+        "difficulty": 1,
+        "pid": "B3924"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 疯狂大减价",
+        "difficulty": 1,
+        "pid": "B3960"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] ZngivaeL 的中考",
+        "difficulty": 1,
+        "pid": "B3961"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 吃苹果",
+        "difficulty": 1,
+        "pid": "B3963"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 神秘排列",
+        "difficulty": 2,
+        "pid": "B3965"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 非众数",
+        "difficulty": 2,
+        "pid": "B3967"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 道法考试",
+        "difficulty": 2,
+        "pid": "B3966"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202403 一级] 小杨买书",
+        "difficulty": 1,
+        "pid": "B3952"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202403 一级] 找因数",
+        "difficulty": 1,
+        "pid": "B3953"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202403 二级] 乘法问题",
+        "difficulty": 1,
+        "pid": "B3954"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202403 二级] 小杨的日字矩阵",
+        "difficulty": 1,
+        "pid": "B3955"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 游乐场",
+        "difficulty": 1,
+        "pid": "B3962"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202404] 天上的气球",
+        "difficulty": 2,
+        "pid": "B3964"
+      },
+      {
+        "type": "P",
+        "name": "组合型枚举",
+        "difficulty": 2,
+        "pid": "P10448"
+      },
+      {
+        "type": "P",
+        "name": "兔子与兔子",
+        "difficulty": 3,
+        "pid": "P10468"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202406 一级] 休息时间",
+        "difficulty": 1,
+        "pid": "B4000"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202406 一级] 立方数",
+        "difficulty": 1,
+        "pid": "B4001"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202406 二级] 平方之和",
+        "difficulty": 1,
+        "pid": "B4002"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202406 二级] 计数",
+        "difficulty": 1,
+        "pid": "B4007"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202409 三级] 平衡序列",
+        "difficulty": 2,
+        "pid": "B4038"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202410] 顺序结构",
+        "difficulty": 1,
+        "pid": "B4042"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202410] 刻度尺",
+        "difficulty": 1,
+        "pid": "B4043"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202410] 奇迹战神",
+        "difficulty": 1,
+        "pid": "B4044"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202410] 同桌",
+        "difficulty": 1,
+        "pid": "B4045"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202410] 校门外的施工",
+        "difficulty": 1,
+        "pid": "B4047"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202412 三级] 数字替换",
+        "difficulty": 1,
+        "pid": "B4066"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202412 三级] 打印数字",
+        "difficulty": 2,
+        "pid": "B4067"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 航班延误",
+        "difficulty": 1,
+        "pid": "B4381"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 机型判断",
+        "difficulty": 1,
+        "pid": "B4382"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 行李托运",
+        "difficulty": 1,
+        "pid": "B4383"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 选座专家",
+        "difficulty": 1,
+        "pid": "B4384"
+      },
+      {
+        "type": "B",
+        "name": " [语言月赛 202508] 分数计算",
+        "difficulty": 1,
+        "pid": "B4385"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 迷宫寻路",
+        "difficulty": 1,
+        "pid": "B4386"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 中转达人",
+        "difficulty": 2,
+        "pid": "B4387"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛 202508] 共享航班",
+        "difficulty": 3,
+        "pid": "B4388"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2025] 拼数",
+        "difficulty": 2,
+        "pid": "P14357"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2025] 座位",
+        "difficulty": 2,
+        "pid": "P14358"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2025] 异或和",
+        "difficulty": 3,
+        "pid": "P14359"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 一级] 小杨的爱心快递",
+        "difficulty": 1,
+        "pid": "B4445"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 一级] 手机电量显示",
+        "difficulty": 1,
+        "pid": "B4446"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 二级] 环保能量球",
+        "difficulty": 1,
+        "pid": "B4447"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 二级] 黄金格",
+        "difficulty": 1,
+        "pid": "B4448"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 三级] 密码强度",
+        "difficulty": 1,
+        "pid": "B4449"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 三级] 小杨的智慧购物",
+        "difficulty": 1,
+        "pid": "B4450"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 四级] 建造",
+        "difficulty": 2,
+        "pid": "B4451"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202512 四级] 优先购买",
+        "difficulty": 2,
+        "pid": "B4452"
+      },
+      {
+        "type": "B",
+        "name": "【模板】哈夫曼编码",
+        "difficulty": 3,
+        "pid": "B2168"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202606 四级] 扫雷",
+        "difficulty": 2,
+        "pid": "B4557"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202606 四级] 身高体重指数",
+        "difficulty": 2,
+        "pid": "B4558"
+      },
+      {
+        "type": "P",
+        "name": "[GESP202606 五级] 排排坐",
+        "difficulty": 2,
+        "pid": "P17010"
+      },
+      {
+        "type": "P",
+        "name": "[GESP202606 五级] 晚宴",
+        "difficulty": 2,
+        "pid": "P17011"
+      },
+      {
+        "type": "P",
+        "name": "[GESP202606 六级] 条形蛋糕",
+        "difficulty": 2,
+        "pid": "P17012"
+      },
+      {
+        "type": "P",
+        "name": "[GESP202606 六级] 满二叉树",
+        "difficulty": 2,
+        "pid": "P17013"
+      },
+      {
+        "type": "P",
+        "name": "[GESP202606 七级] 染色",
+        "difficulty": 3,
+        "pid": "P17014"
+      }
+    ],
+    "submitted": [
+      {
+        "type": "P",
+        "name": "[NOIP 2005 普及组] 陶陶摘苹果",
+        "difficulty": 1,
+        "pid": "P1046"
+      },
+      {
+        "type": "P",
+        "name": "最大子段和",
+        "difficulty": 2,
+        "pid": "P1115"
+      },
+      {
+        "type": "P",
+        "name": "欢乐的跳",
+        "difficulty": 1,
+        "pid": "P1152"
+      },
+      {
+        "type": "P",
+        "name": "两个排列的最长公共子序列",
+        "difficulty": 4,
+        "pid": "P1439"
+      },
+      {
+        "type": "P",
+        "name": "切蛋糕",
+        "difficulty": 3,
+        "pid": "P1714"
+      },
+      {
+        "type": "P",
+        "name": "[HNOI2003] 24点游戏",
+        "difficulty": 4,
+        "pid": "P2277"
+      },
+      {
+        "type": "P",
+        "name": "【深基13.例1】查找",
+        "difficulty": 2,
+        "pid": "P2249"
+      },
+      {
+        "type": "B",
+        "name": "年龄与疾病",
+        "difficulty": 1,
+        "pid": "B2090"
+      },
+      {
+        "type": "B",
+        "name": "【模板】双端队列 1",
+        "difficulty": 2,
+        "pid": "B3656"
+      },
+      {
+        "type": "B",
+        "name": "小清新数据结构题",
+        "difficulty": 2,
+        "pid": "B3665"
+      },
+      {
+        "type": "B",
+        "name": "[语言月赛202211] Jewellery",
+        "difficulty": 1,
+        "pid": "B3682"
+      },
+      {
+        "type": "B",
+        "name": "[GESP202406 三级] 寻找倍数",
+        "difficulty": 2,
+        "pid": "B4004"
+      },
+      {
+        "type": "P",
+        "name": "[CSP-J 2025] 多边形",
+        "difficulty": 3,
+        "pid": "P14360"
+      }
+    ],
+    "elo": [
+      {
+        "rating": 6,
+        "time": 1755867600,
+        "latest": true,
+        "contest": {
+          "id": 270110,
+          "startTime": 1755860400,
+          "endTime": 1755867600,
+          "name": "【LGR-239-Div.4】洛谷入门赛 #38"
+        },
+        "userCount": 1,
+        "prevDiff": null
+      }
+    ],
+    "user": {
+      "uid": 1403058,
+      "avatar": "https://cdn.luogu.com.cn/upload/usericon/1403058.png",
+      "name": "_xhtx_",
+      "slogan": "",
+      "badge": null,
+      "isAdmin": false,
+      "isBanned": false,
+      "color": "Blue",
+      "ccfLevel": 0,
+      "xcpcLevel": 0,
+      "background": "",
+      "eloValue": null,
+      "followingCount": 10,
+      "followerCount": 1,
+      "ranking": 139602,
+      "passedProblemCount": 206,
+      "submittedProblemCount": 219,
+      "elo": null,
+      "registerTime": 1721610298,
+      "introduction": ""
+    }
+  },
+  "user": null,
+  "time": 1783095853.320864
+}

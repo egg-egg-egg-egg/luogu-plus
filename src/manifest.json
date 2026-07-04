@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "洛谷老师助手",
+  "version": "0.1.0",
+  "description": "帮信息学老师避免布置到学生已经 AC 的题",
+  "permissions": ["storage", "notifications", "alarms"],
+  "host_permissions": ["*://www.luogu.com.cn/*"],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_title": "洛谷老师助手"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.luogu.com.cn/*"],
+      "js": ["src/content/index.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "src/options/index.html"
+}

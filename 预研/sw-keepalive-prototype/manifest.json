@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "SW Keepalive Prototype",
+  "version": "1.0.0",
+  "description": "验证 MV3 service worker 长任务保活方案：chrome.alarms 心跳 + storage.local 断点续传",
+  "permissions": [
+    "alarms",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "SW Keepalive Prototype",
+    "default_popup": "popup.html"
+  }
+}
