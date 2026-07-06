@@ -1,0 +1,9 @@
+#!/bin/sh
+# 禁止推送未提交的工作区改动
+if [ -n "$(git status --porcelain)" ]; then
+  echo "❌ 工作区有未提交的改动，禁止 push。请先 commit。"
+  echo ""
+  echo "未提交文件："
+  git status --short
+  exit 1
+fi

@@ -26,6 +26,11 @@
 - typecheck 失败 → 先修，再 commit。
 - 禁止用 `--no-verify` 跳过 hook。
 
+### push 前置校验
+- `git push` 前自动检查工作区是否干净（`.husky/pre-push`）。
+- `git status --porcelain` 不为空 → push 被拒，必须先 commit 清理工作区。
+- 注意：需先配置远程仓库（`git remote add origin <url>`），此 hook 才会触发。
+
 ### commit message 规范
 Conventional Commits 中文风格：
 
