@@ -1,0 +1,2 @@
+# 拦截半成品 commit：类型错误必须先修
+npm run typecheck
