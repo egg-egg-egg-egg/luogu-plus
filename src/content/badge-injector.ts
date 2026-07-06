@@ -122,10 +122,10 @@ function buildTooltip(students: StudentAcInfo[], isClassMode: boolean): string {
 
 /**
  * 获取或创建徽章元素
- * 在题目的容器（<li> 或 <tr>）内查找，避免同一行多个链接导致重复徽章
+ * 在题目的容器内查找（li / tr / .row），避免同一行多个链接导致重复徽章
  */
 function getOrCreateBadge(el: Element): HTMLElement {
-  const container = el.closest('li') || el.closest('tr') || el;
+  const container = el.closest('li') || el.closest('tr') || el.closest('.row') || el;
   const existing = container.querySelector<HTMLElement>(`[${BADGE_ATTR}]`);
   if (existing) return existing;
 
@@ -207,7 +207,7 @@ function updateBadge(
  * 清理题目容器上的徽章（selection 为 null 时调用）
  */
 function clearBadge(el: Element): void {
-  const container = el.closest('li') || el.closest('tr') || el;
+  const container = el.closest('li') || el.closest('tr') || el.closest('.row') || el;
   const badge = container.querySelector<HTMLElement>(`[${BADGE_ATTR}]`);
   if (badge) {
     badge.remove();

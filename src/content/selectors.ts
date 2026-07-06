@@ -57,16 +57,21 @@ export function detectPageType(pathname: string = location.pathname): PageType {
   return 'other';
 }
 
+/**
+ * 从链接 el（<a>）的 href 中提取题目 ID
+ * 三页面（training / problem_list / problemset）共用。
+ */
+function extractProblemIdFromLink(el: Element): string | null {
+  return extractProblemIdFromHref(el.getAttribute('href'));
+}
+
 /** 题单页 /training/{id} 配置：用链接定位，不依赖具体 DOM 结构 */
 const trainingConfig: PageConfig = {
   type: 'training',
   // 洛谷题单页是 Vue SPA，DOM 结构变化频繁（SSR 有 ol>li，但客户端 hydrate 后可能不同）。
   // 不依赖标签选择器，直接用链接定位：所有在 #app 内指向 /problem/ 的链接。
   problemItemSelector: '#app a[href*="/problem/"]',
-  extractProblemId: (el) => {
-    // el 是 <a> 链接，直接从 href 提取 pid
-    return extractProblemIdFromHref(el.getAttribute('href'));
-  },
+  extractProblemId: extractProblemIdFromLink,
   injectBadge: (el, badge) => {
     // el 是 <a> 链接，找到其父 <li> 或列表容器注入徽章
     const li = el.closest('li');
@@ -79,51 +84,36 @@ const trainingConfig: PageConfig = {
   },
 };
 
-/** 题目列表页 /problem/list 配置：表格行，优先 data-pid，回退表格链接 */
-const problemListConfig: PageConfig = {
-  type: 'problem_list',
-  // 洛谷题目列表可能是标准的 <table> 结构，优先用 data-pid，不存在则用表格行含链接的 tr
-  problemItemSelector: 'tr:has(a[href*="/problem/"]), tr[data-pid]',
-  extractProblemId: (el) => {
-    // 优先从 data-pid 属性取
-    const pid = el.getAttribute('data-pid');
-    if (pid) return pid.toUpperCase();
-    // 回退：从行内链接 href 提取
-    const link = el.querySelector('a[href*="/problem/"]');
-    return extractProblemIdFromHref(link?.getAttribute('href') ?? null);
-  },
+/** 列表页 /problem/list + 题库页 /problemset 共用配置
+ *  二者 DOM 结构相同：.list-wrap > .row-wrap > .row（div 模拟表格行） */
+const listCommonConfig: PageConfig = {
+  type: 'problem_list', // 默认类型，problemset 会覆盖
+  // 定位每一行的题目链接：.row > .title > a[href="/problem/Pxxx"]
+  problemItemSelector: '.list-wrap .row a[href*="/problem/"]',
+  extractProblemId: extractProblemIdFromLink,
   injectBadge: (el, badge) => {
-    // 行末尾追加 td 含徽章
-    const td = document.createElement('td');
-    td.style.whiteSpace = 'nowrap';
-    td.appendChild(badge);
-    el.appendChild(td);
-  },
-};
-
-/** 题目集页 /problemset 配置：表格行（与 list 相同结构，列数可能不同） */
-const problemSetConfig: PageConfig = {
-  type: 'problemset',
-  problemItemSelector: 'tr:has(a[href*="/problem/"]), tr[data-pid]',
-  extractProblemId: (el) => {
-    const pid = el.getAttribute('data-pid');
-    if (pid) return pid.toUpperCase();
-    const link = el.querySelector('a[href*="/problem/"]');
-    return extractProblemIdFromHref(link?.getAttribute('href') ?? null);
-  },
-  injectBadge: (el, badge) => {
-    const td = document.createElement('td');
-    td.style.whiteSpace = 'nowrap';
-    td.appendChild(badge);
-    el.appendChild(td);
+    // el 是 <a> 链接（在 .title 内），append 到 .title 内部末尾
+    // 效果：徽章紧贴题目名称链接后面，与题单页显示位置一致，不挤占其他列
+    const title = el.closest('.title');
+    if (title) {
+      title.appendChild(badge);
+    } else {
+      // 回退：追加到行末尾
+      const row = el.closest('.row');
+      if (row) {
+        row.appendChild(badge);
+      } else {
+        el.insertAdjacentElement('afterend', badge);
+      }
+    }
   },
 };
 
 /** 各页面配置表 */
 const PAGE_CONFIGS: Partial<Record<PageType, PageConfig>> = {
   training: trainingConfig,
-  problem_list: problemListConfig,
-  problemset: problemSetConfig,
+  problem_list: listCommonConfig,
+  problemset: { ...listCommonConfig, type: 'problemset' },
 };
 
 /**
