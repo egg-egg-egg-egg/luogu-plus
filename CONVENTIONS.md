@@ -9,6 +9,18 @@
 - **不允许累积**：禁止把多个无关改动攒在一起 commit。
 - **不允许悬空**：禁止"改完文件就走人"——交付前必须 commit。
 
+### 交付前强制检查清单（MUST）
+
+每次向用户交付任务结果前，**必须逐项确认**：
+
+- [ ] `npm run typecheck` 通过（无类型错误）
+- [ ] `git status --porcelain` 为空 = 所有改动已 commit，工作区干净
+- [ ] 所有 commit message 符合 Conventional Commits 规范
+- [ ] 当日工作已写入 `.workbuddy/memory/YYYY-MM-DD.md`
+
+**如果 `git status --porcelain` 不为空 → 有未提交改动，先 commit 再交付。**
+违反此检查清单 = 流程违规，用户有权拒绝交付结果。
+
 ### commit 前置校验
 - 必须通过 `npm run typecheck`（pre-commit hook 自动跑）。
 - typecheck 失败 → 先修，再 commit。
@@ -33,15 +45,20 @@ Conventional Commits 中文风格：
 scope 示例：`content` / `background` / `db` / `ui` / `popup` / `lib`
 
 ### 标准开发流程
-1. 改代码（一个逻辑单元）
-2. `npm run typecheck` 确认无类型错误
-3. `git add <相关文件>`（只 add 相关文件，不用 `git add .`）
-4. `git commit -m "..."`（hook 自动跑 typecheck）
-5. 重复
+1. **开分支**：`git checkout -b feat/<name>`（功能）或 `git checkout -b fix/<name>`（修复 / debug）
+2. 改代码（一个逻辑单元）
+3. `npm run typecheck` 确认无类型错误
+4. `git add <相关文件>`（只 add 相关文件，不用 `git add .`）
+5. `git commit -m "..."`（hook 自动跑 typecheck）
+6. 重复 2-5，直到功能完成
+7. merge 回 `main`，删除临时分支
 
-## 分支策略
-- 个人项目，默认在 `main` 开发。
-- 大功能可开 `feat/<name>` 分支，完成后 merge 回 main。
+## 分支策略（强制）
+- **禁止直接在 `main` 改代码。** 任何开发必须先开分支。
+- 新功能：`feat/<name>` 分支。
+- Bug 修复 / Debug：`fix/<name>` 分支（**强制**，debug 不开分支 = 违规）。
+- 草案 / 实验：`exp/<name>` 分支。
+- 完成并验证后 merge 回 `main`，删除临时分支。
 
 ## 构建与产物
 - `npm run build`：tsc + vite build，产物到 `dist/`。
