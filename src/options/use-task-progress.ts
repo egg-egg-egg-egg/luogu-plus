@@ -11,6 +11,15 @@
 import { useEffect, useRef, useState } from 'react';
 import type { TaskProgress } from '@/db/types';
 
+/** 保证 onDone 始终是最新引用，且不会因回调 identity 变化导致轮询 effect 反复重订阅 */
+function useEventCallback<A extends unknown[], R>(fn?: (...args: A) => R) {
+  const ref = useRef(fn);
+  useEffect(() => {
+    ref.current = fn;
+  });
+  return useRef((...args: A) => ref.current?.(...args)).current;
+}
+
 /** 轮询间隔 */
 const POLL_INTERVAL = 500;
 
@@ -40,6 +49,8 @@ export function useTaskProgress(
   const [loading, setLoading] = useState(false);
   // 已触发 onDone 的 taskId，避免重复回调
   const firedRef = useRef<string | null>(null);
+  // 用 ref 持有最新 onDone，使轮询 effect 仅依赖 taskId，避免回调 identity 变化触发重复轮询
+  const onDoneStable = useEventCallback(onDone);
 
   useEffect(() => {
     if (!taskId) {
@@ -69,7 +80,7 @@ export function useTaskProgress(
           if (resp.task.status !== 'running') {
             if (firedRef.current !== taskId) {
               firedRef.current = taskId;
-              onDone?.(resp.task);
+              onDoneStable(resp.task);
             }
             return; // 不再调度下一次
           }
@@ -93,7 +104,7 @@ export function useTaskProgress(
       cancelled = true;
       if (timer) clearTimeout(timer);
     };
-  }, [taskId, onDone]);
+  }, [taskId]);
 
   const progress =
     task && task.total > 0 ? task.done / task.total : 0;

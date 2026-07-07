@@ -1,5 +1,21 @@
 // Toast 提示组件（轻量全局实现）
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
+//
+// 设计要点（修复「闪烁」与「重复弹窗」两个问题的核心）：
+// 1. toast 状态存放在模块级外部 store，而非 Provider 的 React state。
+//    这样新增/移除 toast 只触发独立的 <ToastViewport /> 重渲染，
+//    不会带着整棵 App 树（学生列表、进度条等）一起重渲染，杜绝页面闪烁。
+// 2. 通过 context 暴露的是「稳定的单例函数引用」，不会因为 toast 变化而改变
+//    identity。下游 useCallback/useEffect 依赖 toast 时不会误触发，
+//    从而避免 useTaskProgress 的回调被反复重置、重复调用。
+// 3. 相同 type + message 的 toast 自动去重，避免一次操作堆叠多条。
+// 4. 提供进入/退出动画，消失过程平滑无突兀闪烁。
+
+import {
+  createContext,
+  useContext,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react';
 
 /** Toast 类型 */
 export type ToastType = 'success' | 'error' | 'info';
@@ -9,51 +25,105 @@ interface ToastItem {
   id: string;
   type: ToastType;
   message: string;
+  /** 是否正在退出（用于播放退出动画） */
+  leaving: boolean;
 }
 
-/** Toast 上下文值 */
+/** 自动消失时长（ms） */
+const TOAST_TTL = 3000;
+/** 退出动画时长（ms），需与 CSS 中的 toastOut 动画一致 */
+const TOAST_LEAVE_MS = 200;
+
+// ===================== 外部 store（模块级，脱离 React 渲染） =====================
+
+let toastState: ToastItem[] = [];
+const listeners = new Set<() => void>();
+
+function emit() {
+  for (const l of listeners) l();
+}
+
+function subscribe(cb: () => void): () => void {
+  listeners.add(cb);
+  return () => {
+    listeners.delete(cb);
+  };
+}
+
+function getSnapshot(): ToastItem[] {
+  return toastState;
+}
+
+/** 调度自动消失 */
+function scheduleAutoRemove(id: string) {
+  window.setTimeout(() => removeToast(id), TOAST_TTL);
+}
+
+/** 新增一条 toast（默认去重） */
+function addToast(type: ToastType, message: string, dedupe = true) {
+  if (dedupe && toastState.some((t) => t.type === type && t.message === message && !t.leaving)) {
+    // 相同操作已有一条可见 toast，不再堆叠
+    return;
+  }
+  const id = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  toastState = [...toastState, { id, type, message, leaving: false }];
+  emit();
+  scheduleAutoRemove(id);
+}
+
+/** 移除一条 toast（先播放退出动画，再真正卸载） */
+function removeToast(id: string) {
+  const target = toastState.find((t) => t.id === id);
+  if (!target || target.leaving) return;
+  // 标记离开，触发退出动画
+  toastState = toastState.map((t) => (t.id === id ? { ...t, leaving: true } : t));
+  emit();
+  // 动画结束后真正移除
+  window.setTimeout(() => {
+    toastState = toastState.filter((t) => t.id !== id);
+    emit();
+  }, TOAST_LEAVE_MS);
+}
+
+// 模块级稳定函数引用：保证 context value 永远不变
+function show(type: ToastType, message: string) {
+  addToast(type, message);
+}
+function showSuccess(message: string) {
+  addToast('success', message);
+}
+function showError(message: string) {
+  addToast('error', message);
+}
+function showInfo(message: string) {
+  addToast('info', message);
+}
+
+// ===================== Context（稳定单例，不随渲染变化） =====================
+
 interface ToastContextValue {
-  /** 显示一条 toast */
   show: (type: ToastType, message: string) => void;
-  /** 便捷方法：成功 */
   success: (message: string) => void;
-  /** 便捷方法：错误 */
   error: (message: string) => void;
-  /** 便捷方法：信息 */
   info: (message: string) => void;
 }
+
+const toastContextValue: ToastContextValue = {
+  show,
+  success: showSuccess,
+  error: showError,
+  info: showInfo,
+};
 
 const ToastContext = createContext<ToastContextValue | null>(null);
 
 /** Toast Provider，包裹在 App 根部 */
 export function ToastProvider({ children }: { children: ReactNode }) {
-  const [toasts, setToasts] = useState<ToastItem[]>([]);
-
-  const remove = useCallback((id: string) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  }, []);
-
-  const show = useCallback(
-    (type: ToastType, message: string) => {
-      const id = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-      setToasts((prev) => [...prev, { id, type, message }]);
-      // 3 秒自动消失
-      setTimeout(() => remove(id), 3000);
-    },
-    [remove],
-  );
-
-  const ctx: ToastContextValue = {
-    show,
-    success: (m) => show('success', m),
-    error: (m) => show('error', m),
-    info: (m) => show('info', m),
-  };
-
   return (
-    <ToastContext.Provider value={ctx}>
+    <ToastContext.Provider value={toastContextValue}>
       {children}
-      <ToastContainer toasts={toasts} onClose={remove} />
+      {/* 独立视图层：toast 状态变化只重渲染它，不影响 children */}
+      <ToastViewport />
     </ToastContext.Provider>
   );
 }
@@ -67,7 +137,8 @@ export function useToast(): ToastContextValue {
   return ctx;
 }
 
-/** Toast 样式映射 */
+// ===================== 视图层 =====================
+
 const toastStyles: Record<ToastType, { container: string; icon: ReactNode }> = {
   success: {
     container:
@@ -110,58 +181,70 @@ const toastStyles: Record<ToastType, { container: string; icon: ReactNode }> = {
   },
 };
 
-/** Toast 容器（固定右上角） */
-function ToastContainer({
-  toasts,
-  onClose,
-}: {
-  toasts: ToastItem[];
-  onClose: (id: string) => void;
-}) {
-  if (toasts.length === 0) return null;
+/** 进入/退出动画 keyframes（始终注入，供 toast 复用） */
+const TOAST_KEYFRAMES = `
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(20px); }
+}
+`;
+
+/** Toast 视图层：仅订阅外部 store，独立重渲染，不影响 App 其余部分 */
+function ToastViewport() {
+  const toasts = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
+
   return (
-    <div className="fixed top-4 right-4 z-[100] flex flex-col gap-2 pointer-events-none">
-      {toasts.map((t) => {
-        const style = toastStyles[t.type];
-        return (
-          <div
-            key={t.id}
-            className={[
-              'pointer-events-auto flex items-center gap-2 px-4 py-3 rounded-lg border shadow-lg',
-              'backdrop-blur-md min-w-[240px] max-w-md',
-              'animate-[toastIn_0.25s_ease-out]',
-              style.container,
-            ].join(' ')}
-            role="status"
-          >
-            {style.icon}
-            <span className="text-sm font-medium flex-1">{t.message}</span>
-            <button
-              onClick={() => onClose(t.id)}
-              className="text-current opacity-50 hover:opacity-100 transition-opacity"
-              aria-label="关闭"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        );
-      })}
-      <style>{`
-        @keyframes toastIn {
-          from { opacity: 0; transform: translateX(20px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-      `}</style>
-    </div>
+    <>
+      <style>{TOAST_KEYFRAMES}</style>
+      {toasts.length > 0 && (
+        <div className="fixed top-4 right-4 z-[100] flex flex-col gap-2 pointer-events-none">
+          {toasts.map((t) => (
+            <ToastCard key={t.id} item={t} onClose={() => removeToast(t.id)} />
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 
-/** 仅用于触发 useEffect 引入样式（占位，目前未使用） */
-export function _ToastStylePlaceholder() {
-  useEffect(() => {
-    return () => {};
-  }, []);
-  return null;
+/** 单条 Toast 卡片 */
+function ToastCard({
+  item,
+  onClose,
+}: {
+  item: ToastItem;
+  onClose: () => void;
+}) {
+  const style = toastStyles[item.type];
+  const animClass = item.leaving
+    ? 'animate-[toastOut_0.2s_ease-in_forwards]'
+    : 'animate-[toastIn_0.25s_ease-out]';
+
+  return (
+    <div
+      className={[
+        'pointer-events-auto flex items-center gap-2 px-4 py-3 rounded-lg border shadow-lg',
+        'backdrop-blur-md min-w-[240px] max-w-md',
+        animClass,
+        style.container,
+      ].join(' ')}
+      role="status"
+    >
+      {style.icon}
+      <span className="text-sm font-medium flex-1">{item.message}</span>
+      <button
+        onClick={onClose}
+        className="text-current opacity-50 hover:opacity-100 transition-opacity"
+        aria-label="关闭"
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  );
 }
